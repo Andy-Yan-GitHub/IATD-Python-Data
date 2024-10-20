@@ -1,1 +1,13 @@
+import pandas as pd
+
+# Load the datasets
+stats = pd.read_csv('/mnt/data/stats.csv')
+players = pd.read_csv('/mnt/data/players.csv')
+games = pd.read_csv('/mnt/data/games.csv')
+
+# Merge the datasets
+merged_df = pd.merge(pd.merge(stats, players, on='player_id'), games, on='game_id')
+
+# Display the first few rows of the merged DataFrame
+merged_df.head()
 
